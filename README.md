@@ -2,7 +2,7 @@
 
 WIP :3c
 
-A file-based, distributed way of defining in-house software applications and infrastructure.
+A file-based, distributed way of defining software applications and related infrastructure.
 
 Ideally, the files are fully linkable, in a way that allows for bidirectional discovery of applications and infrastructure, provided you have credentials to view the SCM repositories.
 
