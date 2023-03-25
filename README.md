@@ -32,6 +32,12 @@ A "SquishAppDef" file, short for "Squished Application
   application in a simple, easy-to-edit, easy-to-read, and
   easy-for-a-machine-to-parse format. Please see
   https://github.com/henryfbp/SquishAppFormat for more information.
+  
+- Application
+  - Build
+  - Infrastructure
+  - Programming Language
+  - Team composition
 
 ## SquishAppDirectory
 
