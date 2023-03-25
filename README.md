@@ -1,10 +1,8 @@
 # SquishAppFormat
 
-WIP :3c
-
 A file-based, distributed way of defining software applications and related infrastructure.
 
-Ideally, the files are fully linkable, in a way that allows for bidirectional discovery of applications and infrastructure, provided you have credentials to view the SCM repositories.
+The files are fully linkable, in a way that allows for bidirectional discovery of applications and infrastructure, provided you have credentials to view the SCM repositories.
 
 Application information is stored in a file, at the root of a VCS repo, called `SquishAppDef.yaml`.
 
@@ -15,6 +13,8 @@ Directories of applications are stored in a file, at the root of a VCS repo, cal
 Pretend that "Team Alpha", is a team that maintains 2 applications - WebGoat and BWAPP.
 
 WebGoat is a Java application, and BWAPP is a PHP application.
+
+To get a list of characteristics for these 2 apps, we can recursively traverse the SquishAppDirectory file, and in turn, all of the SquishAppDev files.
 
 Their directory of applications:
 
