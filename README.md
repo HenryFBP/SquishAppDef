@@ -31,11 +31,11 @@ A "SquishAppDef" file, short for "Squished Application
   Definition". It's meant to describe different characteristics about a software
   application in a simple, easy-to-edit, easy-to-read, and
   easy-for-a-machine-to-parse format. Please see
-  https://github.com/henryfbp/SquishAppDef for more information.
+  https://github.com/henryfbp/SquishAppFormat for more information.
 
 ## SquishAppDirectory
 
 A "SquishAppDirectory" file, short for "Squished Application
   Directory". It's meant to describe a list of software applications in a
   simple, easy-to-edit, easy-to-read, and easy-for-a-machine-to-parse format.
-  Please see https://github.com/henryfbp/SquishAppDef for more information.
+  Please see https://github.com/henryfbp/SquishAppFormat for more information.
