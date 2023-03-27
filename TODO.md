@@ -1,0 +1,1 @@
+- merge 2 objects: https://gist.github.com/angstwad/bf22d1822c38a92ec0a9
