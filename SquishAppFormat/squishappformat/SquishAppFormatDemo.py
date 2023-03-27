@@ -1,6 +1,6 @@
 import os
 from pprint import pprint
-from typing import Dict
+from typing import Dict, List
 
 import yaml
 from git import Repo
@@ -68,7 +68,7 @@ class SquishApplicationList(object):
         self.applications.append(squishAppDef['application'])
         return self
 
-    def get_all_team_members(self):
+    def get_all_team_members(self) -> List[Dict]:
         """TODO use itertools"""
         team_members = []
         app: Dict
