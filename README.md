@@ -8,6 +8,14 @@ Application information is stored in a file, at the root of a VCS repo, called `
 
 Directories of applications are stored in a file, at the root of a VCS repo, called `SquishAppDirectory.yaml`.
 
+## Demo
+
+```sh
+cd ./SquishAppFormat
+poetry install
+bash run_demo.sh
+```
+
 ## Example
 
 Pretend that "Team Alpha", is a team that maintains 2 applications - WebGoat and BWAPP.
