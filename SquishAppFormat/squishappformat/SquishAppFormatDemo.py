@@ -24,7 +24,10 @@ class SquishAppManager(object):
         self.squish_applications = None
 
     def load_squish_app_directory(self, uri: str):
-        squishAppDirPath = './{}/TeamAlpha-SquishAppDirectory'.format(SQUISH_APP_REPOS_FOLDER_NAME)
+
+        repo_name = parse_git_uri_to_repository_name(uri)
+
+        squishAppDirPath = '{}/{}/{}'.format(self.root_directory, SQUISH_APP_REPOS_FOLDER_NAME, repo_name)
 
         directoryRepo = clone_full_git_repo(
             uri,
@@ -42,14 +45,11 @@ class SquishAppManager(object):
         for repoURI in directoryURIs:
             print("- {}".format(repoURI))
 
-        if not os.path.exists(SQUISH_APP_REPOS_FOLDER_NAME):
-            os.makedirs(SQUISH_APP_REPOS_FOLDER_NAME)
-
         # go through all of our SquishAppDirectory URIs
         squish_apps = SquishApplicationList()
         for repoURI in directoryURIs:
             # merge our application definitions into one object, so we can query it
-            squishAppDef = fetch_directory_uri(repoURI)
+            squishAppDef = fetch_directory_uri(self.root_directory, repoURI)
             squish_apps += squishAppDef
 
         self.squish_applications = squish_apps
@@ -100,7 +100,7 @@ def read_squishAppFormat_from_path(path: str) -> Dict:
         return yaml.safe_load(f)
 
 
-def fetch_directory_uri(squishAppDirectoryURI: Dict) -> Dict:
+def fetch_directory_uri(path: str, squishAppDirectoryURI: Dict) -> Dict:
     """Given a SquishAppDirectory URI, clone it, and then return the contents of the YAML file as a Dict."""
     print()
     print("Loading {} ...".format(squishAppDirectoryURI))
@@ -114,13 +114,13 @@ def fetch_directory_uri(squishAppDirectoryURI: Dict) -> Dict:
 
     repoName = parse_git_uri_to_repository_name(repoURI)
 
-    subDirPath = "./{}/{}".format(SQUISH_APP_REPOS_FOLDER_NAME, repoName)
+    repoPath = "{}/{}/{}".format(path, SQUISH_APP_REPOS_FOLDER_NAME, repoName)
 
     # 1. clone repo
-    repo = clone_full_git_repo(repoURI, subDirPath)
+    repo = clone_full_git_repo(repoURI, repoPath)
 
     # 2. read yaml file
-    squishAppDefPath = os.path.join(subDirPath, 'SquishAppDef.yaml')
+    squishAppDefPath = os.path.join(repoPath, 'SquishAppDef.yaml')
     with open(squishAppDefPath, 'r') as f:
         squishAppDef = yaml.safe_load(f)
 
